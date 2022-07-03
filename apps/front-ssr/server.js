@@ -1,4 +1,8 @@
 import fetch from 'node-fetch'
+import Fastify from 'fastify'
+import FastifyVite from 'fastify-vite'
+import FastifyDXVue from 'fastify-dx-vue'
+
 
 globalThis.fetch = fetch;
 
@@ -12,6 +16,14 @@ globalThis.gatewayUrl = (() => {
 export const port = process.env.PORT || 3002;
 export const host = process.env.IP || '127.0.0.1';
 
-export default ({ app }) => {
-}
+const server = Fastify()
+
+await server.register(FastifyVite, {
+	root: import.meta.url,
+	renderer: FastifyDXVue,
+})
+
+await server.vite.ready()
+
+await server.listen(port, host)
 

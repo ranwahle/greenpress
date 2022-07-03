@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html ${fragments.attrs.html}>
+<html>
 <head>
-${fragments.head?.preload}
-${fragments.head?.tags}
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="./base.css">
+	<!-- head -->
+	<!-- hydration -->
 </head>
 <body>
-${fragments.hydration}
-<div id="app">${fragments.element}</div>
-<script type="module" src="/entry/client.js"></script>
+<main><!-- element --></main>
 </body>
+<script type="module" src="/dx:mount.js"></script>
 </html>

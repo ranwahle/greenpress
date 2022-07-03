@@ -12,8 +12,8 @@ try {
 }
 
 try {
-	const lib = await readFile('./node_modules/fastify-vite-vue/render.js');
-	await writeFile('./node_modules/fastify-vite-vue/render.js',
+	const lib = await readFile('./node_modules/fastify-dx-vue/render.js');
+	await writeFile('./node_modules/fastify-dx-vue/render.js',
 		lib.toString()
 			.replace(
 				`      const clientRoutes = routes.map(({
@@ -57,8 +57,8 @@ try {
 
 
 try {
-	const lib = await readFile('./node_modules/fastify-vite-vue/routing.js');
-	await writeFile('./node_modules/fastify-vite-vue/routing.js',
+	const lib = await readFile('./node_modules/fastify-dx-vue/routing.js');
+	await writeFile('./node_modules/fastify-dx-vue/routing.js',
 		lib.toString()
 			.replace(
 				`
@@ -85,9 +85,9 @@ function getPayloadHandler (scope, getPayload) {
   }
 }`)
 	);
-	console.log('fastify-vite-vue routing workaround changed')
+	console.log('fastify-dx-vue routing workaround changed')
 } catch {
-	console.error('fastify-vite-vue routing failed to change')
+	console.error('fastify-dx-vue routing failed to change')
 	process.exit(1)
 }
 
