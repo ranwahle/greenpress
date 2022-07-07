@@ -8,12 +8,14 @@ const AUTHENTICATION_MIDDLEWARES = [populateUser, verifyUser, onlyPrivileged]
 
 router
   .route('/api/events')
+  // @ts-ignore
   .use(AUTHENTICATION_MIDDLEWARES)
   .get(getAllEvents)
   .post(createEvent);
 
 router
   .route('/api/events/:eventId')
+  // @ts-ignore
   .use(AUTHENTICATION_MIDDLEWARES)
   .get(getEvent);
 

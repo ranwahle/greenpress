@@ -1,9 +1,11 @@
+import { existsSync } from 'fs';
 import { readFile, writeFile } from 'fs/promises'
 
+const nodeModulesPath = existsSync('./node_modules') ? './node_modules' : '../../node_modules';
 
 try {
-	const lib = await readFile('./node_modules/fastify-vite/index.js');
-	await writeFile('./node_modules/fastify-vite/index.js',
+	const lib = await readFile(nodeModulesPath + '/fastify-vite/index.js');
+	await writeFile(nodeModulesPath + '/fastify-vite/index.js',
 		lib.toString().replaceAll('process.exit()', 'process.exit(0)')
 	);
 	console.log('fastify-vite workaround changed')
@@ -12,8 +14,8 @@ try {
 }
 
 try {
-	const lib = await readFile('./node_modules/fastify-vite-vue/render.js');
-	await writeFile('./node_modules/fastify-vite-vue/render.js',
+	const lib = await readFile(nodeModulesPath + '/fastify-vite-vue/render.js');
+	await writeFile(nodeModulesPath + '/fastify-vite-vue/render.js',
 		lib.toString()
 			.replace(
 				`      const clientRoutes = routes.map(({
@@ -57,8 +59,8 @@ try {
 
 
 try {
-	const lib = await readFile('./node_modules/fastify-vite-vue/routing.js');
-	await writeFile('./node_modules/fastify-vite-vue/routing.js',
+	const lib = await readFile(nodeModulesPath + '/fastify-vite-vue/routing.js');
+	await writeFile(nodeModulesPath + '/fastify-vite-vue/routing.js',
 		lib.toString()
 			.replace(
 				`

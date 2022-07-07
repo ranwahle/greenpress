@@ -1,0 +1,14 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "baseBranch": "origin/main",
+  "pipeline": {
+    "prebuild": {},
+    "test": {},
+    "build": {
+      "dependsOn": ["prebuild"]
+    },
+    "dev": {
+      "dependsOn": ["build"]
+    }
+  }
+}

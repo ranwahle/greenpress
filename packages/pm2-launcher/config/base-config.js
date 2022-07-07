@@ -1,6 +1,6 @@
 const { join } = require('path')
 
-const appAbsolutePath = join('../../apps/greenpress');
+const appAbsolutePath = join(__dirname);
 const IS_PROD = process.env.NODE_ENV !== 'development'
 
 const localhost = '127.0.0.1';
@@ -31,7 +31,7 @@ module.exports = {
       refreshTokenSecret: process.env.REFRESH_TOKEN_SECRET || 'a secret 2 phrase!!',
       port: process.env.AUTH_PORT || 9000,
       ip: process.env.AUTH_IP || localhost,
-      cwd: process.env.AUTH_SERVICE_CWD || join(appAbsolutePath, './node_modules/@greenpress/auth'),
+      cwd: process.env.AUTH_SERVICE_CWD || join(__dirname, './node_modules/@greenpress/auth'),
       script: process.env.AUTH_SERVICE_SCRIPT || (IS_PROD ? 'dist/index.js' : 'npm run dev'),
       tokenExpiration: process.env.TOKEN_EXPIRATION,
       refreshTokenExpiration: process.env.REFRESH_TOKEN_EXPIRATION,
@@ -44,43 +44,43 @@ module.exports = {
       port: process.env.SECRETS_PORT || 9002,
       ip: process.env.SECRETS_IP || localhost,
       protocol: process.env.SECRETS_SERVICE_PROTOCOL || 'http',
-      cwd: process.env.SECRETS_SERVICE_CWD || join(appAbsolutePath, './node_modules/@greenpress/secrets'),
+      cwd: process.env.SECRETS_SERVICE_CWD || join(__dirname, '../../node_modules/@greenpress/secrets'),
       script: process.env.SECRETS_SERVICE_SCRIPT || 'index.js'
     },
     assets: {
       secret: process.env.ASSETS_SECRETS_TOKEN || 'assets-token-phrase',
       port: process.env.ASSETS_PORT || 9003,
       ip: process.env.ASSETS_IP || localhost,
-      cwd: process.env.ASSETS_SERVICE_CWD || join(appAbsolutePath, './node_modules/@greenpress/assets'),
+      cwd: process.env.ASSETS_SERVICE_CWD || join(__dirname, './node_modules/@greenpress/assets'),
       script: process.env.ASSETS_SERVICE_SCRIPT || 'index.js'
     },
     content: {
       port: process.env.CONTENT_PORT || 9001,
       ip: process.env.CONTENT_IP || localhost,
-      cwd: process.env.CONTENT_SERVICE_CWD || join(appAbsolutePath, './node_modules/@greenpress/content'),
+      cwd: process.env.CONTENT_SERVICE_CWD || join(__dirname, './node_modules/@greenpress/content'),
       script: process.env.CONTENT_SERVICE_SCRIPT || 'index.js'
     },
     drafts: {
       port: process.env.DRAFTS_PORT || 9005,
       ip: process.env.DRAFTS_IP || localhost,
-      cwd: process.env.DRAFTS_SERVICE_CWD || join(appAbsolutePath, './node_modules/@greenpress/drafts'),
+      cwd: process.env.DRAFTS_SERVICE_CWD || join(__dirname, './node_modules/@greenpress/drafts'),
       script: process.env.DRAFTS_SERVICE_SCRIPT || 'dist/index.js'
     },
     admin: {
       port: process.env.ADMIN_PORT || 3001,
       ip: process.env.ADMIN_IP || localhost,
-      cwd: process.env.ADMIN_SERVICE_CWD || join(appAbsolutePath, './node_modules/@greenpress/admin'),
+      cwd: process.env.ADMIN_SERVICE_CWD || join(__dirname, './node_modules/@greenpress/admin'),
       script: process.env.ADMIN_SERVICE_SCRIPT || (IS_PROD ? 'server.js' : 'npm run dev')
     },
     front: {
       port: process.env.FRONT_SERVICE_PORT || 3002,
-      cwd: process.env.FRONT_SERVICE_CWD || join(appAbsolutePath, './node_modules/@greenpress/front-ssr'),
+      cwd: process.env.FRONT_SERVICE_CWD || join(__dirname, './node_modules/@greenpress/front-ssr'),
       script: process.env.FRONT_SERVICE_SCRIPT || (IS_PROD ? 'npm start' : 'npm run dev')
     },
     gateway: {
       port: process.env.GATEWAY_PORT || 3000,
       ip: process.env.GATEWAY_IP || localhost,
-      cwd: process.env.GATEWAY_SERVICE_CWD || join(appAbsolutePath, './node_modules/@greenpress/gateway'),
+      cwd: process.env.GATEWAY_SERVICE_CWD || join(__dirname, './node_modules/@greenpress/gateway'),
       script: process.env.GATEWAY_SERVICE_SCRIPT || 'dist/index.js',
     },
   }

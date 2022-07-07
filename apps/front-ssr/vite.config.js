@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'url'
 import { join, dirname } from 'path'
 import viteVue from '@vitejs/plugin-vue'
-import { viteESModuleSSR } from 'fastify-vite'
+import viteESModuleSSR from 'fastify-vite/plugin'
 
 // @type {import('vite').UserConfig}
 export default {

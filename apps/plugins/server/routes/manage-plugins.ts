@@ -9,12 +9,14 @@ export function managePlugins() {
 
   router
     .route('/api/plugins')
+    // @ts-ignore
     .use(AUTHENTICATION_MIDDLEWARES)
     .get(getAllPlugins)
     .post(createPlugin);
 
   router
     .route('/api/plugins/:pluginId')
+    // @ts-ignore
     .use(AUTHENTICATION_MIDDLEWARES)
     .get(getPlugin)
     .put(updatePlugin)
